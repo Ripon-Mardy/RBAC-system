@@ -3,6 +3,7 @@ import { AppService } from './app.service';
 import { JwtAuthGuard } from './auth/jwt.guard';
 import { PermissionsGuard } from './auth/permissions.guard';
 import { Permissions } from './auth/permissions.decorator';
+import { users } from './data/users';
 
 @Controller()
 export class AppController {
@@ -39,6 +40,16 @@ export class AppController {
   @Get('reports')
   getReports() {
     return { message: 'Reports Data' };
+  }
+
+
+  // get fake data 
+  @Get('data')
+  getData() {
+    return {
+      message: 'This is some fake data',
+      users: users
+    }
   }
 
 
